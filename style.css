@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background: #f5f7fa;
+}
+
+/* ===== HEADER ===== */
+header.container {
+    background: #0b3d2e;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+header .tagline {
+    margin-top: 8px;
+    font-style: italic;
+    color: #cfe8dc;
+}
+
+/* ===== NAVIGATION ===== */
+.main-nav {
+    margin-top: 20px;
+    background: #0f5132;
+}
+
+.main-nav .content ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 0;
+}
+
+.main-nav .content ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s ease;
+    text-transform: capitalize;
+}
+
+.main-nav .content ul li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.active {
+    background: #ffc107 !important;
+    color: #0b3d2e !important;
+    font-weight: bold;
+}
+
+/* Buttons row under the nav links */
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 0 16px;
+}
+
+.nav-buttons button {
+    background: #ffc107;
+    color: #0b3d2e;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.nav-buttons button:hover {
+    background: #ffca2c;
+    transform: translateY(-2px);
+}
+
+/* ===== MAIN CONTENT / SECTIONS ===== */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+main section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 26px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+main section h2,
+main section h3,
+main section h4,
+main section h5,
+main section h6 {
+    color: #0b3d2e;
+    margin-bottom: 12px;
+}
+
+/* ===== STUDENT MANAGEMENT (Week 2 Day 1) ===== */
+.students-hero {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.students-hero p {
+    color: #555;
+    max-width: 600px;
+    margin: 8px auto 0;
+}
+
+.students-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+.dash-card {
+    background: #f8faf9;
+    border: 1px solid #e3e8e5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dash-card i {
+    font-size: 1.8rem;
+    color: #0f5132;
+    margin-bottom: 10px;
+}
+
+.dash-card h4 {
+    color: #0b3d2e;
+    margin-bottom: 6px;
+}
+
+.dash-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.dash-btn {
+    background: #e3e8e5;
+    color: #888;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: not-allowed;
+    font-size: 0.85rem;
+}
+
+.dash-btn.active-btn {
+    background: #0f5132;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.dash-btn.active-btn:hover {
+    background: #0b3d2e;
+}
+
+/* ===== STUDENT FORM (Week 2 Day 2) ===== */
+.back-btn {
+    background: none;
+    border: none;
+    color: #0f5132;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 18px;
+    padding: 0;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+.form-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.form-subtitle {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 14px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #0b3d2e;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccd5d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0f5132;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #0f5132;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    background: #0b3d2e;
+}
+
+.form-success-msg {
+    margin-top: 14px;
+    text-align: center;
+    color: #0f5132;
+    font-weight: bold;
+    display: none;
+}
+
+.form-success-msg.show {
+    display: block;
+}
+
+/* ===== VIEW STUDENTS TABLE (Week 2 Day 3) ===== */
+.table-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 12px 0 20px;
+    font-size: 0.95rem;
+}
+
+.students-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.students-table th,
+.students-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e3e8e5;
+    font-size: 0.9rem;
+}
+
+.students-table th {
+    background: #0f5132;
+    color: #fff;
+}
+
+.students-table tr:hover td {
+    background: #f5f7fa;
+}
+
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: #e3e8e5;
+    color: #888;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: not-allowed;
+}
+
+#noStudentsMsg {
+    text-align: center;
+    color: #888;
+    margin-top: 16px;
+    display: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #0b3d2e;
+    color: #cfe8dc;
+    text-align: center;
+    padding: 16px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .main-nav .content ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}

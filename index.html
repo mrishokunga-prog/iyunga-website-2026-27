@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iyunga.com</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Style hizi ni muhimu kwa toggle na modal kufanya kazi.
+         Unaweza kuzihamishia kwenye style.css baadaye. -->
+    <style>
+        .page { display: none; }
+        .page.active { display: block; }
+
+        .nav-link.active { font-weight: bold; text-decoration: underline; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            background: #fff;
+            padding: 24px 28px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+        }
+        .modal-close {
+            position: absolute;
+            top: 8px; right: 14px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <h1>IYUNGA SECONDARY SCHOOL</h1>
+        <p class="tagline">BUILDING MINDS THAT SHAPE TOMORROW.</p>
+
+        <nav class="main-nav">
+            <div class="content">
+                <ul>
+                    <li><a href="#home" class="nav-link active" onclick="showPage('home', this); return false;"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="#about" class="nav-link" onclick="showPage('about', this); return false;"><i class="fa-solid fa-school"></i> About</a></li>
+                    <li><a href="#service" class="nav-link" onclick="showPage('service', this); return false;"><i class="fa-solid fa-gear"></i> Our Service</a></li>
+                    <li><a href="#contact" class="nav-link" onclick="showPage('contact', this); return false;"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
+                    <li><a href="#location" class="nav-link" onclick="showPage('location', this); return false;"><i class="fa-solid fa-location-dot"></i> Our Location</a></li>
+                    <li><a href="#students" class="nav-link" onclick="showPage('students', this); return false;"><i class="fa-solid fa-user-graduate"></i> Student Management</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-buttons">
+                <button onclick="showPage('home')">Home</button>
+                <button onclick="showPage('about')">About</button>
+                <button onclick="showPage('contact')">Contact</button>
+                <button onclick="showPage('service')">Our Service</button>
+                <button onclick="showPage('location')">Our Location</button>
+                <button onclick="showPage('students')">Student Management</button>
+                <button onclick="welcomeMessage()">ClickMe</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="page active">
+            <h2>Welcome to Iyunga Secondary School</h2>
+            <p>Welcome to our school website.</p>
+        </section>
+
+        <section id="about" class="page">
+            <h3>About Us</h3>
+            <p>Iyunga Secondary School provides quality education to students.</p>
+        </section>
+
+        <section id="service" class="page">
+            <h4>Our Service</h4>
+            <p>We provide quality education and other student services.</p>
+        </section>
+
+        <section id="contact" class="page">
+            <h5>Contact Us</h5>
+            <p>Email: iyunga@info.com</p>
+            <p>Phone: +255 684 459 302</p>
+        </section>
+
+        <section id="location" class="page">
+            <h6>Our Location</h6>
+            <p>Iyunga Secondary School is located 1.2Km North West away from Mbeya University of Science and Technology.</p>
+        </section>
+
+        <!-- ===== WEEK 2 DAY 1: Student Management - Homepage Layout ===== -->
+        <section id="students" class="page">
+            <div class="students-hero">
+                <h2>Student Management System</h2>
+                <p>Manage Iyunga Secondary School student records: add, view, update, and delete student information.</p>
+            </div>
+
+            <div class="students-dashboard">
+                <div class="dash-card">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <h4>Add Student</h4>
+                    <p>Register a new student into the system.</p>
+                    <button class="dash-btn active-btn" onclick="showPage('add-student')">Open Form</button>
+                </div>
+
+                <div class="dash-card">
+                    <i class="fa-solid fa-list"></i>
+                    <h4>View Students</h4>
+                    <p>See the full list of registered students.</p>
+                    <button class="dash-btn active-btn" onclick="showPage('view-students')">Open List</button>
+                </div>
+
+                <div class="dash-card">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <h4>Update Student</h4>
+                    <p>Edit existing student records.</p>
+                    <button class="dash-btn" disabled>Coming soon</button>
+                </div>
+
+                <div class="dash-card">
+                    <i class="fa-solid fa-trash"></i>
+                    <h4>Delete Student</h4>
+                    <p>Remove a student record from the system.</p>
+                    <button class="dash-btn" disabled>Coming soon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WEEK 2 DAY 2: Student Submission Form ===== -->
+        <section id="add-student" class="page">
+            <button class="back-btn" onclick="showPage('students')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+
+            <div class="form-wrapper">
+                <h2>Add New Student</h2>
+                <p class="form-subtitle">Fill in the student's details below.</p>
+
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="regNo">Registration Number</label>
+                        <input type="text" id="regNo" name="regNo" placeholder="e.g. IYG-2026-001" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g. Asha Mwakyusa" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentClass">Class / Form</label>
+                        <select id="studentClass" name="studentClass" required>
+                            <option value="" disabled selected>Select class</option>
+                            <option value="Form 1">Form 1</option>
+                            <option value="Form 2">Form 2</option>
+                            <option value="Form 3">Form 3</option>
+                            <option value="Form 4">Form 4</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Save Student</button>
+                </form>
+
+                <p id="formSuccessMsg" class="form-success-msg"></p>
+            </div>
+        </section>
+
+        <!-- ===== WEEK 2 DAY 3: View Students Table ===== -->
+        <section id="view-students" class="page">
+            <button class="back-btn" onclick="showPage('students')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+
+            <div class="table-wrapper">
+                <h2>Registered Students</h2>
+
+                <input type="text" id="studentSearch" class="search-box" placeholder="Search by name, reg no, or class...">
+
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th>Reg No</th>
+                            <th>Full Name</th>
+                            <th>Gender</th>
+                            <th>Class</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody"></tbody>
+                </table>
+
+                <p id="noStudentsMsg">No students registered yet. Go to "Add Student" to register one.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal ya welcome message -->
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3>Karibu!</h3>
+            <p>Karibu kwenye tovuti ya Iyunga Secondary School. Tunafurahi kukuona hapa!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Iyunga Secondary School. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
