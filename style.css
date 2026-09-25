@@ -329,6 +329,25 @@ main section h6 {
     cursor: not-allowed;
 }
 
+.icon-btn.active-icon {
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.icon-btn.active-icon:hover {
+    transform: translateY(-2px);
+}
+
+.edit-btn.active-icon {
+    background: #ffc107;
+    color: #0b3d2e;
+}
+
+.delete-btn.active-icon {
+    background: #dc3545;
+    color: #fff;
+}
+
 #noStudentsMsg {
     text-align: center;
     color: #888;

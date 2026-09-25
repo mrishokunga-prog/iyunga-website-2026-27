@@ -111,7 +111,7 @@
                     <i class="fa-solid fa-user-plus"></i>
                     <h4>Add Student</h4>
                     <p>Register a new student into the system.</p>
-                    <button class="dash-btn active-btn" onclick="showPage('add-student')">Open Form</button>
+                    <button class="dash-btn active-btn" onclick="resetAddStudentForm(); showPage('add-student')">Open Form</button>
                 </div>
 
                 <div class="dash-card">
@@ -125,14 +125,14 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                     <h4>Update Student</h4>
                     <p>Edit existing student records.</p>
-                    <button class="dash-btn" disabled>Coming soon</button>
+                    <button class="dash-btn active-btn" onclick="showPage('view-students')">Go to List</button>
                 </div>
 
                 <div class="dash-card">
                     <i class="fa-solid fa-trash"></i>
                     <h4>Delete Student</h4>
                     <p>Remove a student record from the system.</p>
-                    <button class="dash-btn" disabled>Coming soon</button>
+                    <button class="dash-btn active-btn" onclick="showPage('view-students')">Go to List</button>
                 </div>
             </div>
         </section>
@@ -142,10 +142,12 @@
             <button class="back-btn" onclick="showPage('students')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
 
             <div class="form-wrapper">
-                <h2>Add New Student</h2>
+                <h2 id="formHeading">Add New Student</h2>
                 <p class="form-subtitle">Fill in the student's details below.</p>
 
                 <form id="studentForm">
+                    <input type="hidden" id="editIndex" value="-1">
+
                     <div class="form-group">
                         <label for="regNo">Registration Number</label>
                         <input type="text" id="regNo" name="regNo" placeholder="e.g. IYG-2026-001" required>
@@ -176,7 +178,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="submit-btn">Save Student</button>
+                    <button type="submit" id="submitBtn" class="submit-btn">Save Student</button>
                 </form>
 
                 <p id="formSuccessMsg" class="form-success-msg"></p>
